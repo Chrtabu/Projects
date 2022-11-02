@@ -1,10 +1,12 @@
 # Actividad 2: Usuarios, grupos, etc/passwd y etc/shadow
 
-- [1. etc/passwd](#1-etcpasswd)
+- [1. /etc/passwd](#1-etcpasswd)
 - [2. /etc/shadow](#2-etcshadow)
 - [3. Useradd](#3-useradd)
+- [4. Aclaración de la contraseña del usuario](#4-aclaración-de-la-contraseña-del-usuario)
+- [5. Creacción de un segundo usuario](#5-creacción-de-un-segundo-usuario)
 
-## 1. etc/passwd
+## 1. /etc/passwd
 ~~~
 etc/passwd
 ~~~
@@ -56,6 +58,25 @@ ls -l /home
 
 > Como podemos ver se ha creado el usuario con éxito
 
+Ahora vamos a ver los permisos que tiene el usuario que hemos creado, para ello usaremos el siguiente comando.
+
+~~~
+sudo nano /etc/passwd
+~~~
+![Permisos del usuario](img/user6.png)
+
+Y ahora veremos que tenemos una contraseña creada y esta encriptada, para verlo usaremos el comando:
+
+~~~
+sudo nano /etc/shadow
+~~~
+
+![Shadow del usuario](img/user7.png)
+
+## 4. Aclaración de la contraseña del usuario
+En este trabajo hemos creado la contraseña con el usuario directamente, pero en caso de que solamente se quiera añadir un usuario y porteriormente añadir una contraseña deberemos saber que cambiara el contenido de nuestro usuario en /etc/shadow.
+
+## 5. Creacción de un segundo usuario
 
 
 
