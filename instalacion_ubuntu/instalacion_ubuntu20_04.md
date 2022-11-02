@@ -1,5 +1,10 @@
 
+
 # Instalacion de Ubuntu
+
+**Índice**
+-[Creacion de la máquina en VirtualBox](#1-creacion-de-la-maquina-en-virtualbox)
+
 
 ## 1 Creacion de la maquina en VirtualBox
 > En esta practica nos centraremos en la instalacion desde cero de una máquina virtual Ubuntu, estará explicado paso a paso con las capturas respectivas en todos los apartados.
