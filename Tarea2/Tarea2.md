@@ -1,12 +1,21 @@
 # Actividad 2: Usuarios, grupos, etc/passwd y etc/shadow
 
-- [1. /etc/passwd](#1-etcpasswd)
-- [2. /etc/shadow](#2-etcshadow)
-- [3. Useradd](#3-useradd)
-- [4. Aclaración de la contraseña del usuario](#4-aclaración-de-la-contraseña-del-usuario)
-- [5. Creacción de un segundo usuario](#5-creacción-de-un-segundo-usuario)
-- [6. Eliminación del primer usuario](#6-eliminación-del-primer-usuario)
-- [7. Volver a crear el usuario del apartado 3 con adduser](#7-volver-a-crear-el-usuario-del-apartado-3-con-adduser)
+- [Actividad 2: Usuarios, grupos, etc/passwd y etc/shadow](#actividad-2-usuarios-grupos-etcpasswd-y-etcshadow)
+  - [1. /etc/passwd](#1-etcpasswd)
+  - [2. /etc/shadow](#2-etcshadow)
+  - [3. Useradd](#3-useradd)
+  - [4. Aclaración de la contraseña del usuario](#4-aclaración-de-la-contraseña-del-usuario)
+  - [5. Creacción de un segundo usuario](#5-creacción-de-un-segundo-usuario)
+  - [6. Eliminación del primer usuario](#6-eliminación-del-primer-usuario)
+  - [7. Volver a crear el usuario del apartado 3 con adduser](#7-volver-a-crear-el-usuario-del-apartado-3-con-adduser)
+  - [9. Explicacion del directorio /etc/skel](#9-explicacion-del-directorio-etcskel)
+  - [10. Explicacion del fichero /etc/group](#10-explicacion-del-fichero-etcgroup)
+  - [11. Creacion de 3 usuarios, grupos](#11-creacion-de-3-usuarios-grupos)
+  - [12. Eliminar los usuarios pertenecientes a los grupos](#12-eliminar-los-usuarios-pertenecientes-a-los-grupos)
+  - [13.Explicacion del comando chage](#13explicacion-del-comando-chage)
+  - [14. Configuracion de permisos en la carpeta](#14-configuracion-de-permisos-en-la-carpeta)
+  - [15. Creacion del cartafol proyects](#15-creacion-del-cartafol-proyects)
+  - [16.Cambio de propietario](#16cambio-de-propietario)
 
 ## 1. /etc/passwd
 ~~~
@@ -162,6 +171,68 @@ sudo adduser pepito --shell /bin/bash
 ![passwd del usuario recreado](img/ejercicio73.png)
 
 > Ahora haremos el /etc/shadow
+
+![Shadow del nuevo usuario](img/apartado8.png)
+
+## 9. Explicacion del directorio /etc/skel
+Este directorio contiene ficheros y otros directorios que soon automaticamente copiados al home del usuario
+Para verlo usaremos el comando siguiente:
+
+~~~
+sudo nano /etc/skel
+~~~
+![skel](img/apartado81.png)
+
+## 10. Explicacion del fichero /etc/group
+Este fichero sirve para definir los usuarios a los cuales pertenecen los usuarios
+
+![Group](img/ejercicio82.png)
+
+## 11. Creacion de 3 usuarios, grupos 
+Hemos creado 3 usuarios los cuales hemos metido dentro de un grupo llamado directors.
+
+![creacion de usuarios y grupos](img/ejercicio83.png)
+
+## 12. Eliminar los usuarios pertenecientes a los grupos
+Para eliminar los usuarios que pertenecen a los grupos haremos los siguientes comandos:
+
+~~~
+sudo gpasswd --delete jean-luc-godard directors
+sudo gpasswd --delete andrei-tarkovsky directors
+~~~
+![eliminacion de los usuarios del grupo](img/ejercicio84.png)
+
+## 13.Explicacion del comando chage
+Este comando se usa para configurar el tiempo de expedición de una contraseña y cuando debe de cambiarla. Si queremos cambiar la validez de esta usaremos el siguiente comando:
+
+~~~
+sudo chage -m 60 -M 60 juliet-berto
+~~~
+![ejercicio13](img/ejercicio13.png)
+
+## 14. Configuracion de permisos en la carpeta
+En este apartado simplemente tendremos que decir que permisos le queremos añadir o quitar a cada carpeta, en mi caso no lo voy a cambiar ya que estoy haciendo el trabajo desde esta maquina, el comando seria el siguiente.
+
+~~~
+sudo chmod [permisos] [documento o carpeta]
+~~~
+
+## 15. Creacion del cartafol proyects
+para ello crearemos la carpeta con los permisos con el siguiente comando
+~~~
+sudo chmod 666 projects/
+~~~
+y comprobamos que nos aparezca
+![ejercicio15](img/ejercicio15.png)
+
+## 16.Cambio de propietario
+Para cambiar el propietario de la carpeta usaremos el siguiente comando.
+
+~~~
+sudo chown -R juliet-berto projects/
+~~~
+![ejercicio16](img/ejercicio16.png)
+
 
 
 
