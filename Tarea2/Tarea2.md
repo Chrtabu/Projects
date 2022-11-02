@@ -5,6 +5,8 @@
 - [3. Useradd](#3-useradd)
 - [4. Aclaración de la contraseña del usuario](#4-aclaración-de-la-contraseña-del-usuario)
 - [5. Creacción de un segundo usuario](#5-creacción-de-un-segundo-usuario)
+- [6. Eliminación del primer usuario](#6-eliminación-del-primer-usuario)
+- [7. Volver a crear el usuario del apartado 3 con adduser](#7-volver-a-crear-el-usuario-del-apartado-3-con-adduser)
 
 ## 1. /etc/passwd
 ~~~
@@ -59,17 +61,11 @@ ls -l /home
 > Como podemos ver se ha creado el usuario con éxito
 
 Ahora vamos a ver los permisos que tiene el usuario que hemos creado, para ello usaremos el siguiente comando.
+Co comando adduser crea outro usuario. Mostra e explica:
 
-~~~
-sudo nano /etc/passwd
-~~~
-![Permisos del usuario](img/user6.png)
-
-Y ahora veremos que tenemos una contraseña creada y esta encriptada, para verlo usaremos el comando:
-
-~~~
-sudo nano /etc/shadow
-~~~
+    Unha captura do resultado de executar ls -l /home antes e despois de executar adduser.
+    Unha captura da parte relevante de /etc/passwd tras a execución.
+    Unha captura da parte relevante de /etc/shadow tras a execución.
 
 ![Shadow del usuario](img/user7.png)
 
@@ -77,6 +73,97 @@ sudo nano /etc/shadow
 En este trabajo hemos creado la contraseña con el usuario directamente, pero en caso de que solamente se quiera añadir un usuario y porteriormente añadir una contraseña deberemos saber que cambiara el contenido de nuestro usuario en /etc/shadow.
 
 ## 5. Creacción de un segundo usuario
+En esta tarea crearemos otro usuario, este usuario se llamara "usuario2" para ello repetiremos el proceso del apartado 1
+
+~~~
+sudo adduser usuario2
+~~~
+![creacion del usuario2](img/usuario2.png)
+
+> Ahora volveremos hacer un ls y veremos que nos aparecen los 2 usuarios creados anteriormente.
+
+~~~
+ls -l /home
+~~~
+
+![Ls del usuario2](img/usuario21.png)
+
+> Ahora haremos lo mismo pero con /etc/passwd y nos aparecerán los permisos de ambos usuarios
+
+~~~
+sudo nano /etc/passwd
+~~~
+![Passwd del usuario2](img/usuario22.png)
+
+> Y ahora veremos el shadow de los usuarios creados anteriormente
+
+~~~
+sudo nano /etc/shadow
+~~~
+
+![Shadow del usuario2](img/usuario23.png)
+
+** Todas las capturas hechas en este apartado son despues de la creación del segundo usuario, para ver la comparación podemos ver las imagenes en el Apartado 3.
+
+## 6. Eliminación del primer usuario 
+En este apartado veremos como eliminar el usuario del apartado 3, para ello haremos lo siguiente:
+
+~~~
+sudo userdel -r pepito
+~~~
+![Eliminacion del primer usuario](img/rm1.png)
+
+> Ahora haremos el ls para ver los cambios
+
+~~~
+ls -l /home
+~~~
+
+![Ls de la eliminacion](img/rm2.png)
+
+> Lo siguiente será comprobar en /etc/passwd, para ello lo haremos como en los apartados anteriores.
+
+~~~
+sudo nano /etc/passwd
+~~~
+
+![Passwd de la eliminacion](img/rm3.png)
+
+> Y ahora repetiremos el siguiente anterior paso pero con /etc/shadow
+
+~~~
+sudo nano /etc/shadow
+~~~
+
+![Shadow de el usuario eliminado](img/rm4.png)
+
+Vemos que aunque hayamos eliminado el usuario se mantiene cierta información de este.
+
+## 7. Volver a crear el usuario del apartado 3 con adduser
+> En este apartado volveremos a crear el usuario que hemos eliminado con useradd.
+
+~~~
+sudo adduser pepito
+~~~
+
+![Creacion del usuario del apartado 3](img/ejercicio7.png)
+
+~~~
+sudo adduser pepito --shell /bin/bash
+~~~
+![Creacion a base de adduser](img/ejercicio71.png)
+
+> Volvermos hacer un ls - l /home para ver los usuarios
+
+![Comprobacion de usuario creado](img/ejercicio72.png)
+
+> Volveremos a hacer el /etc/passwd
+
+![passwd del usuario recreado](img/ejercicio73.png)
+
+> Ahora haremos el /etc/shadow
+
+
 
 
 
