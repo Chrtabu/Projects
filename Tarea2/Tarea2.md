@@ -223,6 +223,7 @@ para ello crearemos la carpeta con los permisos con el siguiente comando
 sudo chmod 666 projects/
 ~~~
 y comprobamos que nos aparezca
+
 ![ejercicio15](img/ejercicio15.png)
 
 ## 16.Cambio de propietario
@@ -231,6 +232,7 @@ Para cambiar el propietario de la carpeta usaremos el siguiente comando.
 ~~~
 sudo chown -R juliet-berto projects/
 ~~~
+
 ![ejercicio16](img/ejercicio16.png)
 
 
