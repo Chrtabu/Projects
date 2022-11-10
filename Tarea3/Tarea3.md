@@ -1,5 +1,8 @@
 ## 1. Definicion de conceptos
-
+### ¿Que es la EFI,UEFI,BIOS,GPT,GUID Y MBR?
+### Diferenciación entre la Iso y la partición
+### ¿Que es un reflector?
+### 
 
 ## 2. Configuración de la maquina virtual
 ### 2.1 Configuración de la RAM
@@ -97,7 +100,25 @@ pacstrap -K /mnt base linux linux-firmware
 
 ![packstrap](./imagenes/pacstrap.png)
 
-Ahora configuraremos el sistema con los siguientes comandos:
+Ahora configura## Instalación de paquetes KDE
+Ahora vamos a instalar por paquetes kde, para ello usaremos los siguientes comandos.
+
+~~~
+pacman -S kf5 kf5-aids
+~~~
+![Instalacion kde 1](./imagenes/kda1.png)
+
+~~~
+pacman -S ttf-freefont
+~~~
+
+![instalacion kde 2](./imagenes/kde2.png)
+
+~~~
+pacman -S sddm sddm-kcm
+~~~
+
+![Instalacion kde 3](./imagenes/kde3.png)
 
 ~~~
 genfstab -U /mnt >> /mnt/etc/fstab
@@ -208,3 +229,6 @@ Lo siguiente sera ejecutar el siguiente comando
  sudo pacman -S nano
 ~~~
  ![Instalacion de nano](./imagenes/nano3.png)
+
+
+
