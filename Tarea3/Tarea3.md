@@ -159,22 +159,34 @@ systemctl enable ssh
 ![enable services](./imagenes/enable.png)
 
 6. Creación de los usuarios
+En este punto tendremos que crear un usuario y ponerle una contraseña, lo cual tenemos la explicación en la tarea 2 en la cuál nos dedicamos íntegramente a la creación y modificación de los usuarios en un sistema. Igualmente voy poner los comandos a continuación.
+
+~~~
+adduser alumno
+passwd alumno
+~~~
+
+## 7. Instalación del entorno gráfico
+Una vez hayamos reado el usuario que tenemos anteriormente, tendremos que instalar el entorno gráfico, para ello usaremos los siguientes comandos.
+
+~~~
+sudo pacman -S xf86-video-vmware xorg lightdm lightdm-gtk-greeter xfce4 xfce4-goodies firefox materia-gtk-theme papirus-icon-theme
+~~~
+
+![Entorno grafico 1](./imagenes/grafico1.png)
+
+~~~
+sudo systemctl enable lightdm
+~~~
+
+![Entorno grafico 2](./imagenes/grafico2.png)
+
+Una vez hayamos hecho eso reiniciarenos el sistema y veremos que nos aparecerá el usuario que hemos creado y nos pedirá la contraseña, solo tendremos que introducirla y ya nos iniciara sesion.
+
+![inicio de sesion](./imagenes/user1.png)
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-## Instalacion nano
+## 8. Instalacion nano
 Lo primero que tendremos que hacer será conectarnos por SH, para ello usaremos el siguiente comando
 
 ~~~
