@@ -116,11 +116,53 @@ locale-gen
 
 ![locale-gen](./imagenes/localegen.png)
 
-Ahora nos dirigiremos a /etc/locale.gen y decomentaremos el idioma que querramos usar, para España será el siguiente:
+Ahora nos dirigiremos a /etc/locale.gen y decomentaremos el idioma que querramos usar, para el Español será el siguiente:
 
 ~~~
 vim /etc/locale.gem
 ~~~
+
+![elecion de español](./imagenes/es_es.png)
+
+luego lo escribiremos en /etc/locale.conf y añadiremos lo siguiente:
+
+~~~
+vim /etc/locale.conf
+~~~
+
+![lang=es](./imagenes/lang.png)
+
+Luego iremos a /etc/vconsole.conf y añadiremos lo siguiente:
+
+![kaymap](./imagenes/keymap.png)
+
+Ahora vamos a hacer la instalación de paquetes, para ello usaremos el siguiente comando
+
+~~~
+pacman -S grub efibootmgr network-manager network-manager-applet dialog os-probe mtools dosfstools base-devel linux-headers cups reflector openssh xdg-utils xdg-user-dirs virturalbox-guest-utils
+~~~
+
+![Instalacion de paquetes](./imagenes/instalacion%20de%20paquetes.png)
+
+~~~
+grub-install
+grub-mkconfig -o /boot/grub/grub.cfg
+~~~
+
+![Grub](./imagenes/grub.png)
+
+~~~
+systemctl enable NetworkManager
+systemctl enable ssh
+~~~
+
+![enable services](./imagenes/enable.png)
+
+6. Creación de los usuarios
+
+
+
+
 
 
 
