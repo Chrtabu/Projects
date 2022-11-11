@@ -1,8 +1,63 @@
 ## 1. Definicion de conceptos
+
 ### ¿Que es la EFI,UEFI,BIOS,GPT,GUID Y MBR?
+
+
 ### Diferenciación entre la Iso y la partición
+
+
 ### ¿Que es un reflector?
-### 
+
+
+### En reflector explica los siguientes flags: -c, -a, -- sort rate, --save < mirror-list-directory>, -S, -y
+
+
+### Explicar en Filesystem Table el flag: -U
+
+
+### Explicar los flags de timezone
+
+
+### Explicacion de los paquetes: 
+
+Grub:
+
+Efibootmgr:
+
+Networkmanager:
+
+Network-manager-applet:
+
+Dialog:
+
+Os-prober:
+
+Mtools:
+
+Dosfstools:
+
+Base-devel:
+
+Linux-headers:
+
+Cups:
+
+Reflector:
+
+Openssh:
+
+Git:
+
+Xdg-utils:
+
+Xdg-user-dirs:
+
+Virtualbox-guest-utils:
+
+### Explicación de wheel, -m -G en users.
+
+### Explicación Visudo
+
 
 ## 2. Configuración de la maquina virtual
 ### 2.1 Configuración de la RAM
