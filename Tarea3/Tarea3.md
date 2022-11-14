@@ -2,12 +2,26 @@
 
 ### ¿Que es la EFI,UEFI,BIOS,GPT,GUID Y MBR?
 
+EFI: Significa Interfaz de firmware extensible y es un estándar diseñado para reemplazar el BIOS, el sistema de arranque que las computadoras han usado desde el principio. 
 
+UEFI: Su función es la de iniciar los componentes de hardware y lanzar el sistema operativo de un ordenador cuando lo encendemos.
+
+BIOS: Es el software integrado ala la placa base encargada de iniciar tu sistema y otras configuraciónes.
+
+GPT: Es un estándar diseñado para realizar la configuración de las tablas de particiones y su ubicación en medios de almacenamiento como los discos duros.
+
+GUID: Es un identificador que nos permite saber el numero del disco.
+
+MBR: Es el sector de arranque, que esta ocupado por unos codigos que le dicen a la BIOS como actuar.
+
+#
 ### Diferenciación entre la Iso y la partición
 
+La diferencia es que si trabajamos en una Iso estamos cambiando configuraciones de la imagen de instalación para poder instalar el sistema, en cambio si trabajamos desde la instalación estamos configurando sobre un sistema operativo ya instalado.
 
+#
 ### ¿Que es un reflector?
-
+Es un script que puede recuperar la última lista de servidores de replicas desde la pagina "MirrorStatus".
 
 ### En reflector explica los siguientes flags: -c, -a, -- sort rate, --save < mirror-list-directory>, -S, -y
 
@@ -20,44 +34,48 @@
 
 ### Explicacion de los paquetes: 
 
-Grub:
+Grub: Es un cargador de arranque múltiple desarrollado por el proyecto GNU que nos permite elegir qué sistema operativo arrancar de entre los instalados. Se utiliza principalmente en el sistema operativo GNU/Linux.
 
-Efibootmgr:
+Efibootmgr: Es una aplicación de espacio de usuario que modifica el administrador de arranque de la interfaz de firmware extensible (EFI) de Intel. Con esta aplicación, podemos crear y eliminar entradas de arranque, cambiar dicho orden de arranque, cambiar las siguientes opciones de ejecución de arranque, etc.
 
-Networkmanager:
+Networkmanager: Es una herramienta de software utilizada para simplificar el uso de redes informáticas en Linux y otros sistemas operativos basados ​​en Unix.
 
-Network-manager-applet:
+Network-manager-applet: Es el front-end de GNOME de NetworkManager. Muestra un icono en el área de notificación de GNOME. Funciona con otros entornos de escritorio que proporcionan una bandeja del sistema, como KDE o XFCE. Muestra una lista de redes disponibles y le permite cambiar fácilmente entre ellas. Para redes encriptadas, le pedirá una clave/contraseña, que puede guardar opcionalmente en la fuente de gnome para que no tenga que ingresarla nuevamente.
 
-Dialog:
+Dialog:_ Es un programa que te permite mostrar una serie de preguntas o mensajes en la pantalla usando cuadros de diálogo de shell. Dichos diálogos son adecuados para calendarios, listas de selección y otros tipos de diálogos.
 
-Os-prober:
+Os-prober: Encargado de generar el archivo "/etc/grub.d/30_os-probe" a través del cual se determina el sistema operativo y utilizará grub para su menú de arranque.
 
-Mtools:
+Mtools: Es una colección de utilidades de dominio público que permiten a los sistemas Unix manipular archivos MS-DOS: leer, escribir y mover archivos en sistemas de archivos MS-DOS.
 
-Dosfstools:
+Dosfstools: Es una colección de herramientas de línea de comandos gratuitas y de código abierto que permiten a los usuarios crear, asignar y verificar fácil y rápidamente sistemas de archivos FAT de MS-DOS en sistemas operativos GNU/Linux.
 
-Base-devel:
+Base-devel: Es un conjunto de paquetes que incluye las herramientas necesarias para construir (compilar y enlazar). No se requiere para una instalación básica y muchos usuarios no necesitan instalarlo. Puede instalarlo como parte de la instalación base o más adelante si lo encuentra útil.
 
-Linux-headers:
+Linux-headers: Se encarga de instalar una imagen linux como dependencia.
 
-Cups:
+Cups: Es un sistema de impresión modular de código abierto que utiliza el Protocolo de impresión de Internet (IPP) como base para administrar impresoras, solicitudes de impresión y colas de impresión.
 
-Reflector:
+Reflector: Es un script que puede recuperar la última lista de servidores de replicas desde la pagina "MirrorStatus".
 
-Openssh:
+Openssh: Es un conjunto de aplicaciones que proporcionan comunicación encriptada a través de una red utilizando el protocolo SSH. Fue creado como una alternativa gratuita y abierta al programa propietario Secure Shell.
 
-Git:
+Git: El software de control de versiones fue desarrollado originalmente por Linus Torvalds y se ha convertido en una herramienta indispensable para el desarrollo de software, incluido el propio kernel de Linux.
 
-Xdg-utils:
+Xdg-utils: Es un conjunto de herramientas que facilita la integración de aplicaciones en su entorno de escritorio, funciona con cualquier DE o WM, está disponible siempre que tenga una GUI.
 
-Xdg-user-dirs:
+Xdg-user-dirs: Es una herramienta que lo ayuda a administrar carpetas de usuarios que sean conocidas, como carpetas de escritorio y carpetas de música. También maneja la localización de nombres de archivos.
 
-Virtualbox-guest-utils:
+Virtualbox-guest-utils: Es un paquete de software que forma parte de VirtualBox que agrega funcionalidad a la instalación base de VirtualBox, mejorando su rendimiento y brindando un mejor nivel de integración huesped-host.
 
 ### Explicación de wheel, -m -G en users.
 
-### Explicación Visudo
+-m: Sirve para crear usuarios en /home/usuario, pero los uauarios que se creen con -m podrán leer, escribir y modificar aunque no sean superusuarios.
 
+-G: Se encarga de introducir los usuarios a los grupos que querramos.
+
+### Explicación Visudo
+Visudo abre un editor de texto, pero conserva la sintaxis del archivo. Esto elimina la posibilidad de una configuracion incorrecta que impida las operaciones sudo, que pueden ser la única forma de obtener privilegios de superusuario.
 
 ## 2. Configuración de la maquina virtual
 ### 2.1 Configuración de la RAM
