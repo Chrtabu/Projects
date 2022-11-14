@@ -21,16 +21,26 @@ La diferencia es que si trabajamos en una Iso estamos cambiando configuraciones 
 
 #
 ### ¿Que es un reflector?
+
 Es un script que puede recuperar la última lista de servidores de replicas desde la pagina "MirrorStatus".
-
-### En reflector explica los siguientes flags: -c, -a, -- sort rate, --save < mirror-list-directory>, -S, -y
-
 
 ### Explicar en Filesystem Table el flag: -U
 
+Significa unmount, que se encarga de eliminar o desmontar los discos que tenemos en el equipo.
 
 ### Explicar los flags de timezone
 
+CONV_TIMESTAMP: Convierte la fecha y la hora para su uso en otra zona horaria     
+
+SYS_DATE: Devuelve la fecha actual al comienzo del procesamiento del script. 
+
+SYS_DATE_PHYSICAL: Devuelve la fecha actual
+
+SYS_TIME: Devuelve la hora actual del día al comienzo del procesamiento del script
+
+SYS_TIME_PHYSICAL: Determina la hora actual del día 
+
+SYS_TIMESTAMP_PHYSICAL: Proporciona la fecha y hora actual
 
 ### Explicacion de los paquetes: 
 
