@@ -130,3 +130,5 @@ sudo quotaon -v /
 
 
 ## Información
+En este apartado voy a añadir las diferentes fuentes que he usado para realizar la tearea.
+
