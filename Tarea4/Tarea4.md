@@ -15,6 +15,7 @@
   - [4.3 Añadir los módulos de quota al kernel (si fuese necesario)](#43-añadir-los-módulos-de-quota-al-kernel-si-fuese-necesario)
   - [4.4 Activa el sistema de cuotas](#44-activa-el-sistema-de-cuotas)
 - [5. Cuotas de usuario y de grupo](#5-cuotas-de-usuario-y-de-grupo)
+- [Información](#información)
 
 ## 1. Definicion
 Las cuotas de disco son límites que son creados por el administrador de sistemaque limita el uso del sistema de archivos en los sistemas operativos. El paquete para manejar cuaotas es "quota quotatool"
@@ -22,32 +23,66 @@ Las cuotas de disco son límites que son creados por el administrador de sistema
 ## 2. Como saber si nuestro S.O tiene instalado los modulos kernel para el uso de las cuotas
 
 ### 2.1 Explicación del comando `find`, y los flags:
-`-type`: 
+Es un comando que sirve para buscar archivos en el gestor de gestión de archivos a través de los parametros que le pongamos, por ejemplo, los siguientes
+
+`-type`: Filtra por el tipo de archivo
 
 
-`-name`: 
+`-name`: Filtra por el nombre
 
 ### 2.2 Como podemos utilizar el comando `find` para saber si nuestro SO tiene instalado los módulos de kernel que permiten el manejo de las cuotas?
 
+Si queremos saber si nuestro equipo tiene instalado los modulos de kernel de cuotas usaremos el siguiente comando:
 
+~~~
+find /lib/modules/`uname -r` -type f -name '*quota_v*.ko*'
+~~~
+
+![Busqueda de los paquetes de quota](Imagenes/cap1.png)
 
 ### 2.3 Que paquete tendriamos que instalar si no tuviésemos esos módulos kernel instalados?
 
+Tendríamos que user el siguiente comando:
 
+~~~
+sudo apt install quota
+~~~
+
+![Instalación de quota](Imagenes/cap2.png)
 
 ## 3. Donde activar las cuotas de un usuario y grupo
 
 ### 3.1 Haz los cambios pertinentes a los ficheros adecuados
 
+Ahora nos dirijiremos a `/etc/fstab` y editaremos los datos de manera que quede como tenemos en la siguiente imagen:
+
+** Nuestro UUID en esta maquina es 126970b1-346a-475a-af3e-d2cbbb27d3ee
+
+~~~
+sudo nano /etc/fstab
+~~~
+![Configuración de /fstab](Imagenes/cap3.png)
 
 
 ### 3.2 que hay que hacer con el disco afectado? (si fuese necesario)
 
+Ahora tendremos que montarel sistema para aplicar los cambios, para ello usaremos el siguiente comando.
 
+~~~
+sudo mount -o remount /
+~~~
+
+![montaje del disco con la configuración de quotas](Imagenes/cap6.png)
 
 ### 3.3 Comproba que las opciones de disco son correctas
 
+Para comprobar que los comandos anteriores han funcionado usaremos los siguientes comandos.
 
+~~~
+cat /proc/mounts | grep ' / '
+~~~
+
+![comprobacion de las opciones de disco](Imagenes/cap5.png)
 
 ## 4.Activación de las cuotas
 
@@ -68,3 +103,5 @@ Las cuotas de disco son límites que son creados por el administrador de sistema
 
 
 ## 5. Cuotas de usuario y de grupo
+
+## Información
