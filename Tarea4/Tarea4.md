@@ -15,6 +15,7 @@
   - [4.3 Añadir los módulos de quota al kernel (si fuese necesario)](#43-añadir-los-módulos-de-quota-al-kernel-si-fuese-necesario)
   - [4.4 Activa el sistema de cuotas](#44-activa-el-sistema-de-cuotas)
 - [5. Cuotas de usuario y de grupo](#5-cuotas-de-usuario-y-de-grupo)
+- [6. Informes de cuotas](#6-informes-de-cuotas)
 - [Información](#información)
 
 ## 1. Definicion
@@ -88,20 +89,44 @@ cat /proc/mounts | grep ' / '
 
 ### 4.1 Creación de ficheros necesarios
 
+Ahora habilitaremos las cuotas, para ello usaremos los siguientes comandos:
 
+~~~
+quotacheck -cum /
+quotacheck -cgm /
+quotacheck -cugm /
+~~~
+![habilitación de cuotas](Imagenes/cap7.png)
 
 ### 4.2 Verificación de la creación de los ficheros adecuados
+Ahora vamos a verificar que tengamos los ficheros creados, para ello haremos un `ls /`
 
-
+![Verificación de la creacion](Imagenes/cap9.png)
 
 ### 4.3 Añadir los módulos de quota al kernel (si fuese necesario)
+El comando es el siguiente.
 
+~~~
+sudo apt install linux-image-extra-virtual
+~~~
 
+![Añadimos los modulos kernel](Imagenes/cap8.png)
 
 ### 4.4 Activa el sistema de cuotas
+Ahora vamos a activar las cuotas en root, para ello vamos usar los siguientes comandos:
 
+~~~
+sudo quotaon -v /
+~~~
 
+![activacion de las cuotas](Imagenes/cap10.png)
 
 ## 5. Cuotas de usuario y de grupo
+
+
+
+## 6. Informes de cuotas
+
+
 
 ## Información
