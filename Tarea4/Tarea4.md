@@ -1,22 +1,23 @@
 # Actividad 4, cuotas de disco
 
-- [1. Definicion](#1-definicion)
-- [2. Como saber si nuestro S.O tiene instalado los modulos kernel para el uso de las cuotas](#2-como-saber-si-nuestro-so-tiene-instalado-los-modulos-kernel-para-el-uso-de-las-cuotas)
-  - [2.1 Explicación del comando `find`, y los flags:](#21-explicación-del-comando-find-y-los-flags)
-  - [2.2 Como podemos utilizar el comando `find` para saber si nuestro SO tiene instalado los módulos de kernel que permiten el manejo de las cuotas?](#22-como-podemos-utilizar-el-comando-find-para-saber-si-nuestro-so-tiene-instalado-los-módulos-de-kernel-que-permiten-el-manejo-de-las-cuotas)
-  - [2.3 Que paquete tendriamos que instalar si no tuviésemos esos módulos kernel instalados?](#23-que-paquete-tendriamos-que-instalar-si-no-tuviésemos-esos-módulos-kernel-instalados)
-- [3. Donde activar las cuotas de un usuario y grupo](#3-donde-activar-las-cuotas-de-un-usuario-y-grupo)
-  - [3.1 Haz los cambios pertinentes a los ficheros adecuados](#31-haz-los-cambios-pertinentes-a-los-ficheros-adecuados)
-  - [3.2 que hay que hacer con el disco afectado? (si fuese necesario)](#32-que-hay-que-hacer-con-el-disco-afectado-si-fuese-necesario)
-  - [3.3 Comproba que las opciones de disco son correctas](#33-comproba-que-las-opciones-de-disco-son-correctas)
-- [4.Activación de las cuotas](#4activación-de-las-cuotas)
-  - [4.1 Creación de ficheros necesarios](#41-creación-de-ficheros-necesarios)
-  - [4.2 Verificación de la creación de los ficheros adecuados](#42-verificación-de-la-creación-de-los-ficheros-adecuados)
-  - [4.3 Añadir los módulos de quota al kernel (si fuese necesario)](#43-añadir-los-módulos-de-quota-al-kernel-si-fuese-necesario)
-  - [4.4 Activa el sistema de cuotas](#44-activa-el-sistema-de-cuotas)
-- [5. Cuotas de usuario y de grupo](#5-cuotas-de-usuario-y-de-grupo)
-- [6. Informes de cuotas](#6-informes-de-cuotas)
-- [Información](#información)
+- [Actividad 4, cuotas de disco](#actividad-4-cuotas-de-disco)
+  - [1. Definicion](#1-definicion)
+  - [2. Como saber si nuestro S.O tiene instalado los modulos kernel para el uso de las cuotas](#2-como-saber-si-nuestro-so-tiene-instalado-los-modulos-kernel-para-el-uso-de-las-cuotas)
+    - [2.1 Explicación del comando `find`, y los flags:](#21-explicación-del-comando-find-y-los-flags)
+    - [2.2 Como podemos utilizar el comando `find` para saber si nuestro SO tiene instalado los módulos de kernel que permiten el manejo de las cuotas?](#22-como-podemos-utilizar-el-comando-find-para-saber-si-nuestro-so-tiene-instalado-los-módulos-de-kernel-que-permiten-el-manejo-de-las-cuotas)
+    - [2.3 Que paquete tendriamos que instalar si no tuviésemos esos módulos kernel instalados?](#23-que-paquete-tendriamos-que-instalar-si-no-tuviésemos-esos-módulos-kernel-instalados)
+  - [3. Donde activar las cuotas de un usuario y grupo](#3-donde-activar-las-cuotas-de-un-usuario-y-grupo)
+    - [3.1 Haz los cambios pertinentes a los ficheros adecuados](#31-haz-los-cambios-pertinentes-a-los-ficheros-adecuados)
+    - [3.2 que hay que hacer con el disco afectado? (si fuese necesario)](#32-que-hay-que-hacer-con-el-disco-afectado-si-fuese-necesario)
+    - [3.3 Comproba que las opciones de disco son correctas](#33-comproba-que-las-opciones-de-disco-son-correctas)
+  - [4.Activación de las cuotas](#4activación-de-las-cuotas)
+    - [4.1 Creación de ficheros necesarios](#41-creación-de-ficheros-necesarios)
+    - [4.2 Verificación de la creación de los ficheros adecuados](#42-verificación-de-la-creación-de-los-ficheros-adecuados)
+    - [4.3 Añadir los módulos de quota al kernel (si fuese necesario)](#43-añadir-los-módulos-de-quota-al-kernel-si-fuese-necesario)
+    - [4.4 Activa el sistema de cuotas](#44-activa-el-sistema-de-cuotas)
+  - [5. Cuotas de usuario y de grupo](#5-cuotas-de-usuario-y-de-grupo)
+  - [6. Informes de cuotas](#6-informes-de-cuotas)
+  - [Información](#información)
 
 ## 1. Definicion
 Las cuotas de disco son límites que son creados por el administrador de sistemaque limita el uso del sistema de archivos en los sistemas operativos. El paquete para manejar cuaotas es "quota quotatool"
@@ -122,12 +123,95 @@ sudo quotaon -v /
 ![activacion de las cuotas](Imagenes/cap10.png)
 
 ## 5. Cuotas de usuario y de grupo
+Cada vez que establezas unha cuota comproba cun comando que a estableciches correctamente.
 
+- Creade as usuarias `veronica-lake`, `gene-tierney`, `ada-lovelace` e `hedy-lamarr`.
+
+Para ello usaremos los siguientes comandos:
+~~~
+sudo adduser (nombre del usuario)
+~~~
+
+- Creade os grupos de usuarias `actresses` e `scientists`.
+ Para ello usaremos el comando 
+
+~~~
+sudo addgroup (Y aqui el nombre del grupo)
+~~~
+![Captura de usuarios y grupos creados](./Imagenes/cap12.png)
+
+- Incluide a `veronica-lake`, `gene-tierney` e `hedy-lamarr` no grupo `actresses`
+
+![Añadir los usuarios a los grupos actresses](./Imagenes/cap13.png)
+
+- Incluide a `ada-lovelace` e `hedy-lamarr` no grupo `scientists`.
+
+![Añadir los usuarios a los grupos scientist](./Imagenes/cap14.png)
+
+- Establece as seguintes cuotas de usuario:
+  
+Para la creadión de cuotas para los usuarios usaremos el siguiente comando:
+
+~~~
+edquota -u (y el nombre de usuarios)
+~~~
+
+   - `veronica-lake` 100M soft e 150M hard.
+
+   - `gene-tierney` 200M soft e 250M hard.
+
+   - `ada-lovelace` 500M soft e 600M hard.
+
+   - `hedy-lamarr` 800M soft e 1G hard.
+
+![Cuotas creadas para las usuarios](./Imagenes/cap15.png)
+
+- Establecede as seguintes cuotas de grupo:
+
+Para la creadión de cuotas de los grupos usaremos el siguiente comando:
+
+~~~
+edquota -g (y el nombre del grupo)
+~~~
+
+   - `actresses` 400M soft e 450M hard
+   - `scientist` 900M soft e 1G hard
+
+![Cuotas creadas para los usuarios](./Imagenes/cap16.png)
+
+Comprobade os efectos que ten o solapamento das cuotas entre grupos e usuarias e explicádeos:
+
+Para comprobarlo usaremos el comando:
+
+~~~
+quota -vg (nombre del grupo) (El parametro g es solamente para grupos)
+quota -vu (nombre del usuario) (Es solamente para los usuarios)
+~~~
+
+![Comprobacion de las cuotas](./Imagenes/cap17.png)
+
+1. Cómo funcionan as cuotas nun grupo?
+
+
+
+2. Cómo afectan aos usuarios do grupo?
+
+
+
+3. Posibilidades:
+   - A cuota do grupo afecta aos membros do grupo (sumada)
+   - A cuota do grupo afecta a cada membro do grupo (individualmente)
 
 
 ## 6. Informes de cuotas
+Jenera un informe global de las cuotas creadas
+Para ello usaremos usaremos el siguiente comando:
 
+~~~
+repquota -vug /
+~~~
 
+![Informe de las cuotas](./Imagenes/cap18.png)
 
 ## Información
 En este apartado voy a añadir las diferentes fuentes que he usado para realizar la tearea.
