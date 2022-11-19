@@ -65,7 +65,6 @@ sudo nano /etc/fstab
 ~~~
 ![Configuración de /fstab](Imagenes/cap3.png)
 
-
 ### 3.2 que hay que hacer con el disco afectado? (si fuese necesario)
 
 Ahora tendremos que montarel sistema para aplicar los cambios, para ello usaremos el siguiente comando.
@@ -90,6 +89,12 @@ cat /proc/mounts | grep ' / '
 
 ### 4.1 Creación de ficheros necesarios
 
+-u: especifica que se creará un archivo de cuota basado en el usuario.
+
+-g: especifica que se creará un archivo de cuota basado en grupos. 
+
+-m: detiene el montaje del sistema de archivos como de solo lectura, al tiempo que brinda resultados precisos en entornos donde los usuarios aún guardan archivos. La opción m no es necesaria durante la instalación.
+
 Ahora habilitaremos las cuotas, para ello usaremos los siguientes comandos:
 
 ~~~
@@ -97,6 +102,7 @@ quotacheck -cum /
 quotacheck -cgm /
 quotacheck -cugm /
 ~~~
+
 ![habilitación de cuotas](Imagenes/cap7.png)
 
 ### 4.2 Verificación de la creación de los ficheros adecuados
@@ -192,16 +198,22 @@ quota -vu (nombre del usuario) (Es solamente para los usuarios)
 
 1. Cómo funcionan as cuotas nun grupo?
 
+¿Qué son las cuotas en Linux?
 
+Las cuotas le permiten limitar el uso del espacio del sistema de archivos por parte de los administradores del sistema. los mas comunes son los inodos: limitan el número de archivos, pero tabien hay los bloques que limitan por bloques.
 
 2. Cómo afectan aos usuarios do grupo?
 
-
+En caso de que tengamos un usuario con una cantidad limitada de cuota y estea en un grupo el cual (por ejemplo tiene 200M) se le aumenta es espacio a la cantidad de la cuota del usuario mas los 200M que recibe del grupo
 
 3. Posibilidades:
-   - A cuota do grupo afecta aos membros do grupo (sumada)
-   - A cuota do grupo afecta a cada membro do grupo (individualmente)
+   - A cuota do grupo afecta aos membros do grupo (sumadas)
 
+Las cuotas del usuario son sumanas a las cuotas del grupo
+
+   - A cuota do grupo afecta a cada membro do grupo (individualmente)
+  
+Las cuotas del grupo limitan el espacio de cada usuario aunque tenga una cuota diferente a la del grupo, siempre prevalecerá la del grupo.
 
 ## 6. Informes de cuotas
 Jenera un informe global de las cuotas creadas
@@ -213,6 +225,21 @@ repquota -vug /
 
 ![Informe de las cuotas](./Imagenes/cap18.png)
 
+
 ## Información
 En este apartado voy a añadir las diferentes fuentes que he usado para realizar la tearea.
 
+-Quotas
+
+> https://www.linuxtotal.com.mx/index.php?cont=info_admon_018
+
+> https://www.garron.me/es/gnu-linux/agregar-usuario-grupo-linux.html
+
+> http://apuntes.ucr.ac.cr/index.php/Crear_cuotas_de_espacio_para_usuarios_y_grupos
+
+-Otra información (guía) necesaria para el trabajo
+
+> https://www.solvetic.com/tutoriales/article/8839-instalar-quota-y-crear-cuotas-de-disco-ubuntu-20-04-o-20-10/
+
+- Video de la configuracion de las cuotas (el cual me sirvió una parte)
+ >https://www.youtube.com/watch?v=Klg-eHxIDb4
