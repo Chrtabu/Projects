@@ -1,7 +1,7 @@
 # Arch on VirtualBox
 [Guía de la instalación](https://wiki.archlinux.org/title/installation_guide)
 
-# 0 Recorda tratar
+# Definiciones
 
 - **Conceptos:**
 
@@ -19,14 +19,35 @@
 
 - Diferenciar claramente cando nos atopamos na ISO de instalación e na partición(s) instalada(s).
 
-
+Cuando nos encontramos en la ISO de instalación estamos trabajando directamente sobre el sistema de instalación, es decir, aun estamos configurando el sistema que **aun vamos a instalar**. En cambio cuando nos encontramos en una particion significa que el sistema ya se ha instalado y estamos configurando el sistema en un sistema operativo **ya instalado**
 
 - Que é reflector?
-
+Un reflector es un software (o dispositivo) que redirige paquetes de datos de una red a otra, se usan normalmente para ampliar la cobertura de una red inalámbrica o para crear una conexión segura a través de una VPN (Red Privada Virtual).
 
 ## 1. Create and Configure a Virtual Machine
 Antes de nada  tendremos que descargar la Iso de archlinux, para ello podemos acceder al siguiente [enlace](https://archlinux.org/download/)
 ### 1.1 Creation
+El primer paso que tendremos que hacer será crear la máquina virtual desde VirtualBox, a continuación mostraré paso a paso como crear la máquina de ArchLinux.
+
+-Paso 1: En VirtualBox clikaremos en "Nuevo"y nos aparecerá la siguiente pestaña, el la cual tendremos que añadir un nombre a la máquina y añadiremos la ISO del sistema que querramos instalar, en este caso será la de un archlinux.
+
+![Instalación paso 1](./ImagenesFinal/Paso1Instalacion.png)
+
+-Paso 2: El siguiente paso será poner cuanta RAM  queremos usar para nuestra máquina, en mi caso pondre 2 GB de Ram.
+
+* **Nota**: En la parte de nucleos del procesador le he puesto 2 nucleos, ya que si se le deja en default coge 1 y no deja iniciar las máquinas.
+
+![Instalación paso 2](./ImagenesFinal/Paso2Instalacion.png)
+
+-Paso 3: Una vez indicada la RAM tendremos que configurar el espacio de disco que queremos utilizar para la máquina Virtual, en mi caso le he puesto 20GB.
+
+![Instalación paso 3](./ImagenesFinal/Paso3Instalacion.png)
+
+-Paso 4: Ahora nos aparecerá una pestaña donde nos resumira las configuraciónes que hemos hecho a la máquina, le daremos a terminar ya que un tenemos que configurar un par de opciones mas.
+
+![Instalación paso 4](./ImagenesFinal/Paso4Instalacion.png)
+
+-Paso 5: 
 
 ### 1.2 Extra Configuration
 ### 1.3 Setting up SSH
