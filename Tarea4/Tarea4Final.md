@@ -94,10 +94,17 @@ Cada vez que establezas unha cuota comproba cun comando que a estableciches corr
 Comprobade os efectos que ten o solapamento das cuotas entre grupos e usuarias e explicádeos:
 
 1. Cómo funcionan as cuotas nun grupo?
+- Se limita el uso del disco al espacio maximo en el que estea configurado para un grupo en específico.
+
 2. Cómo afectan aos usuarios do grupo?
+-Todos los usuarios que estean dentro de un grupo tendrán el límite de la cuota del grupo.
+
 3. Posibilidades:
    - A cuota do grupo afecta aos membros do grupo (sumada)
+   Una cuota sumada es la cantidad total de cuotas que se han establecido para un período de tiempo determinado, se usa para regular el espacio u otros servicios.
+
    - A cuota do grupo afecta a cada membro do grupo (individualmente)
+   Los usuarios que pertenezcan a un grupo tendrán que cumplir una cuota individual de cada usuario, y este debe estar dentro de la cuota del grupo al que pertenece.
 
 ## 6 Informes de cuotas
 
