@@ -67,10 +67,48 @@ cat /proc/mounts | grep /dev/sda
 
 ## 4 Activado as cuotas (tanto de usuario coma de grupo)
 
-- Creación de ficheiros necesarios
-- **Recorda**: verifica que se crearon os ficheiros adecuados
-- Engade os módulos de quota ao kernel (se fose necesario)
-- Activa o sistema de cuotas
+**Explicaciónes:**
+
+`-u:` Indica que se deben mostrar los límites de cuota del usuario.
+
+`-g:` indica que se deben mostrar los límites de cuota para el/los grupo
+(s) afectados. 
+
+`-m:` Sirve para alertar de que un usuario o grupo se esta acercando al límite de la cuota y se le notificará por correo electrónico.
+
+`-c:` Indica los cambios que se han realizado a los límites de cuota de disco; sirve para apreciar todos los cambios hacia usuarios y grupos.
+
+Crearemos los ficheros que necesitamos para usar `quota`, para ello usaremos el siguiente comando:
+
+~~~
+sudo quotacheck -cugm /
+~~~
+
+![Paso del comando quotacheck](./ImagenesFinal/Paso%20quotachek.png)
+
+Verificaremos los ficheros, para ello lanzaremos el comando siguiente:
+
+~~~
+ls /
+~~~
+
+![Verificación de ficheros necesarios de quota](./ImagenesFinal/verificacion%20de%20ficheros.png)
+
+Ahora añadiremos los módulos kernel, para ello usaremos el siguiente comando:
+
+~~~
+sudo apt install linux-image-extra-virtual
+~~~
+
+![Instalación del módulo kernel](./ImagenesFinal/intalacion%20modulos%20kernel.png)
+
+El siguiente paso será activar las cuotas, para ello pondremos este comando:
+
+~~~
+sudo quotaon -v /
+~~~
+
+![Activación de las cuotas](./ImagenesFinal/activacion%20de%20cuotas.png)
 
 ## 5 Cuotas de usuario e de grupo
 
