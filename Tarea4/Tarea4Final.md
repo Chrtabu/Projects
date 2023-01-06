@@ -19,6 +19,7 @@ Podriamos saberlo usando el anterior comando de la siguiente manera:
 find /lib/modules/$(uname -r) -name "*quota*.ko
 ~~~
 
+![Comprobación modulos Kernel](./ImagenesFinal/)
 
 3. Qué paquete teriamos que instalar se non tivésemos eses módulos kernel instalados?
 
