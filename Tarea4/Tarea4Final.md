@@ -19,17 +19,53 @@ Podriamos saberlo usando el anterior comando de la siguiente manera:
 find /lib/modules/$(uname -r) -name "*quota*.ko
 ~~~
 
-![Comprobación modulos Kernel](./ImagenesFinal/)
+![Comprobación modulos Kernel](./ImagenesFinal/comprobacion%20cuotas.png)
 
 3. Qué paquete teriamos que instalar se non tivésemos eses módulos kernel instalados?
 
+En caso de que no tengamos instalado el módulo kernel tendremos que instalarlo con el siguiente comando:
+
+~~~
+sudo apt-get install quota
+~~~
+
+![Instalación del "quota"](./ImagenesFinal/Instalacion%20de%20modulo%20kernenl.png)
+
+Si queremos comprobar la versión del paquete `quota` usaremos el siguiente comando:
+
+~~~
+quota --version
+~~~
+
+![Comprobación de la versión de quota](./ImagenesFinal/version%20del%20paquete%20quota.png)
+
 ## 3 Onde debemos activar/declarar as cuotas de usuario e grupo
 
-- Fai os cambios pertinentes ao(s) ficheiro(s) adecuado(s)
-- Que hai que facer co disco afectado? (FAINO 😁)
-- Comproba que as opcións de disco son correctas (**PISTA**: qué hai en `/proc/mounts`)?
+El primer paso para la activación de la cuotas será diirijirnos a `/etc/fstab` y editaremos el fichero con mucho cuidado ya que en caso de que eliminemos algo podemos eliminar el sistema **(como recomendación: si es la primera vez que se dita esto crear una instantánea de la máquina para evitar perder todo el sistema)** , para ello usaremos el siguiente comando:
 
-## 4 Activando as cuotas (tanto de usuario coma de grupo)
+~~~
+nano /etc/fstab
+~~~
+
+![Configuración del archivo en /etc/fstab](./ImagenesFinal/%C3%A7configuracion%20fstab.png)
+
+Ahora montaremos el disco
+
+~~~
+sudo mount -o remount /
+~~~
+
+![Remount](./ImagenesFinal/Paso%20remount.png)
+
+Para comprobar que lo hemos hecho bien usaremos el siguiente comando
+
+~~~
+cat /proc/mounts | grep /dev/sda
+~~~
+
+![Comprobación con el error](./ImagenesFinal/Error%20que%20sale%20en%20la%20comprobaci%C3%B3n.png)
+
+## 4 Activado as cuotas (tanto de usuario coma de grupo)
 
 - Creación de ficheiros necesarios
 - **Recorda**: verifica que se crearon os ficheiros adecuados
