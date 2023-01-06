@@ -47,15 +47,30 @@ El primer paso que tendremos que hacer será crear la máquina virtual desde Vir
 
 ![Instalación paso 4](./ImagenesFinal/Paso4Instalacion.png)
 
--Paso 5: 
+-Paso 5: Ahora nos dirigiremos a la configuración de la máquina (Clik derecho en la maquina y le daremos a "Configuraciones") en el partado de "Sistema" habilitamos la opción "Habilitar EFI" 
+
+![Instalación paso 5](./ImagenesFinal/Paso5Instalacion.png)
 
 ### 1.2 Extra Configuration
+En este apartado ejecutaremos os siguientes comandos, los cuales sirven para verificar la firma de la Imagen antes de usarla.
+
+~~~
+gpg
+~~~
+
 ### 1.3 Setting up SSH
 ### 1.4 Plugging in Arch ISO
 
 ## 2. Start the VM
 
 ## 3. Keyboard
+ En este apartado cargaremos el idioma del teclado ya que la distribucion por defecto es el inglés, para ello usaremos el siguente comando.
+
+ ~~~
+ loadkeys es
+ ~~~
+
+![Cambio de distribución de teclado](./ImagenesFinal/Imagen1loadkeys.png)
 
 ## 4. Extra packages needed
 
