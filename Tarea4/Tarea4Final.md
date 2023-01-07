@@ -108,6 +108,8 @@ El siguiente paso será activar las cuotas, para ello pondremos este comando:
 sudo quotaon -v /
 ~~~
 
+`-v`: Define mas información
+
 ![Activación de las cuotas](./ImagenesFinal/activacion%20de%20cuotas.png)
 
 ## 5 Cuotas de usuario e de grupo
@@ -117,17 +119,63 @@ sudo quotaon -v /
 Cada vez que establezas unha cuota comproba cun comando que a estableciches correctamente.
 
 - Creade as usuarias `veronica-lake`, `gene-tierney`, `ada-lovelace` e `hedy-lamarr`.
+
+~~~
+sudo useradd <nombre del usuario>
+~~~
+
+![Verificación de la creación de los usuarios](./ImagenesFinal/verificacion%20de%20usuarios.png)
+
 - Creade os grupos de usuarias `actresses` e `scientists`.
+
+~~~
+sudo addgroup <nombre del grupo>
+~~~
+
+![Creacion de los grupos](./ImagenesFinal/verificacion%20de%20creacion%20de%20los%20grupos.png)
+
 - Incluide a `veronica-lake`, `gene-tierney` e `hedy-lamarr` no grupo `actresses`
+
+~~~
+sudo usermod -a -G <grupos> <usuario>
+~~~
+
+![verificacion añadir usuarios al grupo](./ImagenesFinal/actresses.png)
+
 - Incluide a `ada-lovelace` e `hedy-lamarr` no grupo `scientists`.
+
+***Nota**: El comando es igual que para añadir usuarios colo que cambiando el grupo.
+
+Confirmaremos que lo hayamos hecho bien con el siguiente comando:
+
+~~~
+cat /etc/group | grep scientists
+~~~
+
+![verificación de añadir usuarios al grupo](./ImagenesFinal/scientists.png)
+
 - Establece as seguintes cuotas de usuario:
+
+Para añadir las cuotas a los usuarios o grupos usaremos el siguiente comando:
+
+~~~
+edquota -u (y el nombre de usuario)
+~~~
+
+`u`: 
+
    - `veronica-lake` 100M soft e 150M hard.
    - `gene-tierney` 200M soft e 250M hard.
    - `ada-lovelace` 500M soft e 600M hard.
    - `hedy-lamarr` 800M soft e 1G hard.
+
+![Creacion de las cuotas para los usuarios](./ImagenesFinal/cuotas%20creadas%201.png)
+
 - Establecede as seguintes cuotas de grupo:
    - `actresses` 400M soft e 450M hard
    - `scientist` 900M soft e 1G hard
+
+
 
 Comprobade os efectos que ten o solapamento das cuotas entre grupos e usuarias e explicádeos:
 
