@@ -162,7 +162,9 @@ Para añadir las cuotas a los usuarios o grupos usaremos el siguiente comando:
 edquota -u (y el nombre de usuario)
 ~~~
 
-`u`: 
+`u`: Es para indicar que son usuarios
+
+`g`: Es para indicar que es para los grupos
 
    - `veronica-lake` 100M soft e 150M hard.
    - `gene-tierney` 200M soft e 250M hard.
@@ -175,7 +177,7 @@ edquota -u (y el nombre de usuario)
    - `actresses` 400M soft e 450M hard
    - `scientist` 900M soft e 1G hard
 
-
+![Creacion de las cuotas para los grupos](./ImagenesFinal/cuotas%20de%20los%20grupos%202.png)
 
 Comprobade os efectos que ten o solapamento das cuotas entre grupos e usuarias e explicádeos:
 
@@ -189,18 +191,45 @@ Comprobade os efectos que ten o solapamento das cuotas entre grupos e usuarias e
    - A cuota do grupo afecta aos membros do grupo (sumada)
    Una cuota sumada es la cantidad total de cuotas que se han establecido para un período de tiempo determinado, se usa para regular el espacio u otros servicios.
 
+- Para probar este apartado usaré el siguiente comando con el usuario veronica-lake:
+
+`-c`: imprime el total al final de la salida
+
+`-s`: imprime el total de la suma de tamaños
+
+~~~
+du -cs <directorio>
+~~~
+
+![Prueba de cuota sumada](./ImagenesFinal/prueba1.png)
+
+***Nota**: En este caso no nos aparece el espacio utilizado ya que no se ha usado el usuario pero en caso de haberse usado con este comando nos apareceria la suma de espacio que esta usando.
+
    - A cuota do grupo afecta a cada membro do grupo (individualmente)
    Los usuarios que pertenezcan a un grupo tendrán que cumplir una cuota individual de cada usuario, y este debe estar dentro de la cuota del grupo al que pertenece.
 
+-Para esta prueba vamos a crear cuotas indidualmente, para ello usaremos:
+
+~~~
+edquota -u <usuario>
+~~~
+
+y dentro ajustaremos el tamaño a lo que nos interese pero deberá ser menos al límite que tiene el grupo.
+
+![Prueba 2](./ImagenesFinal/prueba2.png)
+
+***Nota** : En este caso ya tenemos un espacio configurado de un apartado anterior, pero podriamos cambiarlo a cualquier tamaño mientras sea menor que el límite del grupo.
+
 ## 6 Informes de cuotas
 
-Xera un informe global das cuotas creadas
+Para generar un informe de las quotas creadas usaremos el siguiente comando:
 
-## 7 Entrega
+~~~
+sudo repquota -vug /
+~~~
 
-Cando remates, establece un `tag` chamado `v4` e con mensaxe `"Entrega actividade 4"` 👇
+![Captura del informe de las cuotas](./ImagenesFinal/captura%20final.png)
 
-```sh
-git tag -a v4 <derradeiro-hash-commit> -m "Entrega actividade 4"
-git push origin v4
-```
+
+## Información
+Toda la información ha sido buscada página a página (páginas web, foros, videos de youtube).
