@@ -209,5 +209,5 @@ echo ArchLinuxAct3 >> /etc/hostname
 ## 10. `Mkinitcpio`
  `Mkinitcpio` es un script de `bash` que se usa para crear un esquema para cargar un sistema de archivos para root
 
-## 11.
+A partir de aqui me salen errores y no he podido continuar
 
