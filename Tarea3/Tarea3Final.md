@@ -151,185 +151,63 @@ Ahora vamos a instalar los paquetes que vamos a necesitar, en este caso serán: 
 pacstrap -K /mnt base linux linux-firmware
 ~~~
 
+![Instalacion de paquetes](imagenesfinal/instalacion%20de%20paquetes.png)
 
 
-## 5. Which is my IP?
+## 6. Generar fichero `fstab`
 
+Ahora generaremos los ficheros fstab, para ello usaremos los siguientes comandos:
 
+~~~
+genfstab -U /mnt >> /mnt/etc/fstab
+~~~
 
-### 5.1 Start ssh daemon
-### 5.2 Password for the ISO's root user
-### 5.3 The IP
+![generar fstab](imagenesfinal/generar.png)
 
-## 6. `ssh` from terminal
+## 7. Timezone
+Para ello usaremos los siguientes comandos:
 
-## 7. sync Network Time Protocol
+~~~
+ln -sf /usr/share/zoneinfo/Region/City /etc/localtime
+hwclock --systohc
+~~~
 
-## 8. `reflector`, mirror list, fastest server available AKA _Refresh the servers with `pacman -Syy`_
+![timezone](imagenesfinal/timezone.png)
 
-### 8.1 Get the _best_ servers (_reflector_)
+`-s:` Crea un link simbolico
 
-Explicación Flags:
+`-f:` Elimina los directorios existentes y escribe los nuevos.
 
-- `-c`
-- `-a`
-- `--sort rate`
-- `--save <mirror-list-directory>`
+## 8. Generar Locales
+Estos son los conjuntos de parámetros  que utilizan programas para renderizar textos, monedas, horas..., para generar `locale` escribiremos los siguientes comandos:
 
-### 8.2 Refresh servers
+~~~
+locale-gen
+echo LANG=en_US.UFT-8 >> /etc/locale.conf
+~~~
 
-Explicación Flags:
-- `-S` or `--sync`
-- `-y` or `--refresh`
+![Generacion de locale](imagenesfinal/locale%20gen.png)
 
-## 9 Disks and partitions
+### 8.1 `Vsconsole.conf`
+En este paso volveremos a cambiar la distribucion del teclado permanentemente con el siguiente comando:
 
-### 9.1 Check status
-### 9.2 Partitions for a EFI system
-### 9.3 `gdisk`, utility to create GPT Tables
+~~~
+echo KEYMAP=es >> /etc/vconsole.conf
+~~~
 
-## 10 Formating partitions
+![configuración del teclado permanente](imagenesfinal/teclado.png)
 
-## 11 Mounting partitions
+## 9. Configuración de la red
+Ahora añadiremos el fichero `hostname` el nombre de equipo, para ello usaremos este comando:
 
-### 11.1 `sda1`
-### 11.2 `sda2`
+~~~
+echo ArchLinuxAct3 >> /etc/hostname
+~~~
 
-## 12 Installation of the base packages to `/mnt` with `pacstrap`
+![Nombre del equipo](imagenesfinal/nombre%20equipo.png)
 
-## 13 Generating the FileSystem Table (`fstab`)
+## 10. `Mkinitcpio`
+ `Mkinitcpio` es un script de `bash` que se usa para crear un esquema para cargar un sistema de archivos para root
 
-Recorda explicar o flag:
+## 11.
 
-- `-U`:
-
-## 14 Enter the installation AKA _Chroot in with arch-chroot `/mnt`_
-
-## 15 Create a 2GB swap file
-
-### 15.1 A 2GB swap file
-### 15.2 Permissions
-### 15.3 Formatting as swap
-### 15.4 Activating the `/swapfile`
-### 15.5 Generating its FileSystem Table Entry (`fstab`)
-
-## 16 Timezone
-
-### 16.1 What's my timezone (GOTCHA)
-### 16.2 Setting the timezone
-
-Recorda explicar os flags:
-
-- `-s` or `--symbolic`
-- `-f`or `--force`
-
-### 16.3 Syncing the HW Clock & the System Clock
-### 16.4 Setting which locales to be generated
-
-Recorda explicar:
-
-- Qué é un _locale_.?
-
-### 16.5 Generating the locales
-### 16.6 `/etc/locale.conf`
-### 16.7 `/etc/vconsole.conf`
-
-## 17 The `/etc/hostname` file
-
-## 18 The `/etc/hosts` file
-
-```sh
-127.0.0.1   localhost
-::1         localhost
-127.0.1.1   <hostame>.localdomain    <hostname>
-```
-
-## 19 A password for the `root` user
-
-## 20 Bootloader & some moar packages
-
-Explicaciónes:
-
-- grub
-- efibootmgr
-- networkmanager
-- network-manager-applet
-- dialog
-- os-prober
-- mtools
-- dosfstools
-- base-devel
-- linux-headers
-- cups
-- reflector
-- openssh
-- git
-- xdg-utils
-- xdg-user-dirs
-- virtualbox-guest-utils
-
-## 21 Installing and setting up `grub`
-
-### 21.1 Installing grub
-### 21.2 Configuring grub
-
-## 22 Enabling some services
-
-### 22.1 `NetworkManager`
-### 22.2 `sshd`
-### 22.3 `cupsd` (GOTCHA)
-
-## 23 Create a new user
-
-### 23.1 Creation
-
-Explicación:
-
-- O grupo `wheel`.
-- O flag `-m`.
-- O flag `-G`.
-
-### 23.2 Password
-### 23.3 `sudo` privileges
-
-`visudo`:
-
-## 24 EXIT the installation!!!!
-
-## 25 Unmounting and Rebooting
-
-### 25.1 `umount` all the partions
-### 25.2 Reboot
-
-## 26 Log into Arch ...and check if we have an IP
-
-## 27 `ssh` into the VM ...again
-
-## 28 Desktop environment
-
-### 28.1 Installation of xfce4
-
-Instala e explica brevemente que fan os seguintes paquetes:
-
-- `xf86-video-vmware`
-- `xorg`
-- `lightdm` and `lightdm-gtk-greeter`
-- `xfce4` and `xfce4-goodies`
-- `materia-gtk-theme` and `papirus-icon-theme`
-
-
-### 28.2 Enable `lightdm` display manager
-
-## 29 Exit ssh and reboot
-
-## 30 Moar
-
-### 30.1 Install `nano`
-
-```sh
-$ pacman -S nano
-```
-
-### 30.2 Install some other desktop environment
-
-- [Suxerencia paquetes gnome](https://gitlab.com/eflinux/arch-basic/-/blob/master/gnome.sh)
